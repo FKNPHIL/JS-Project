@@ -4,6 +4,7 @@ const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 const questionPicture = document.getElementById('questionpicture')
+const userscore = document.getElementById('user-score')
 
 
 let shuffledQuestions, currentQuestionIndex
@@ -17,6 +18,7 @@ nextButton.addEventListener('click', () => {
 function startGame() {
   startButton.classList.add('hide')
   shuffledQuestions = questions.sort(() => Math.random() - .5)
+  shuffledQuestions = shuffledQuestions.slice(0,10)
   currentQuestionIndex = 0
   questionContainerElement.classList.remove('hide')
   setNextQuestion()
@@ -29,6 +31,7 @@ function setNextQuestion() {
 
 function showQuestion(question) {
   questionElement.innerText = question.question
+    questionPicture.src = question.images
     question.answers.forEach(answer => {
       const button = document.createElement('button')
       button.innerText = answer.text
@@ -39,7 +42,6 @@ function showQuestion(question) {
       button.addEventListener('click', selectAnswer)
       answerButtonsElement.appendChild(button)
     })
-    questionPicture.src = question.images
 }
 
 function resetState() {
@@ -53,6 +55,11 @@ function resetState() {
 function selectAnswer(e) {
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
+  
+  if (correct) {
+    userscore.innerText = parseFloat(userscore.innerText) + 1
+  }
+
   setStatusClass(document.body, correct)
   Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
@@ -88,7 +95,7 @@ answers: [
 { text: 'Flip a Coin', correct: false },
 { text: 'Bamboozle', correct: false }
 ],
-images: "../images/Q1.png"
+images: "images/Q1.png"
 },
 {
 question: "What is the name of the girl who gave birth to Monica and Chandler's twins?",
@@ -98,7 +105,7 @@ answers: [
 { text: 'Enika', correct: false },
 { text: 'Angelina', correct: false }
 ],
-images: "../images/Q1.png"
+images: "images/Q2.png"
 },
 {
 question: "What is Joey's favorite food?",
@@ -108,7 +115,7 @@ answers: [
 { text: 'Sandwiches', correct: true },
 { text: 'Potatoes', correct: false }
 ],
-images: "../images/Q1.png"
+images: "images/Q3.png"
 },
 {
 question: "Where does Phoebe's real mother live?",
@@ -118,7 +125,7 @@ answers: [
 { text: 'Montauk', correct: false },
 { text: 'Pennsylvania', correct: false }
 ],
-images: "../images/Q1.png"
+images: "images/Q4.png"
 },
 {
 question: "What does Rachel get a tattoo of?",
@@ -128,7 +135,7 @@ answers: [
 { text: 'A Heart', correct: true },
 { text: 'A Ring', correct: false }
 ],
-images: "../images/Q1.png"
+images: "images/Q5.png"
 },
 {
 question: "Janice's ex-husband sells what thing?",
@@ -138,7 +145,7 @@ answers: [
 { text: 'Children Toys', correct: false },
 { text: 'Computers', correct: false }
 ],
-images: "../images/Q1.png"
+images: "images/Q6.png"
 },
 {
 question: "Monica's old boyfriend Richard had the job of?",
@@ -148,7 +155,7 @@ answers: [
 { text: 'Gynecologist', correct: false },
 { text: 'Ophthamologist', correct: true }
 ],
-images: "../images/Q1.png"
+images: "images/Q7.png"
 },
 {
 question: 'Chandler had a crazy roommate, what is his name?',
@@ -158,7 +165,7 @@ answers: [
 { text: 'Eddie', correct: true },
 { text: 'Teddie', correct: false }
 ],
-images: "../images/Q1.png"
+images: "images/Q8.png"
 },
 {
 question: 'What is the name of the song that made Emma laugh?',
@@ -168,7 +175,7 @@ answers: [
 { text: "Stacy's Mom", correct: false },
 { text: 'Anaconda', correct: false }
 ],
-images: "../images/Q1.png"
+images: "images/Q9.png"
 },
 {
 question: 'Which of the following Friends character introduced Phoebe and Mike?',
@@ -178,7 +185,7 @@ answers: [
 { text: 'Joey', correct: true },
 { text: 'Monica', correct: false }
 ],
-images: "../images/Q1.png"
+images: "images/Q10.png"
 },
 {
 question: "In season one, what did Ross buy for Rachel's birthday gift?",
@@ -188,7 +195,7 @@ answers: [
 { text: 'Sweater', correct: false },
 { text: 'Necklace', correct: false }
 ],
-images: "../images/Q1.png"
+images: "images/Q11.png"
 },
 {
 question: "What is the name of Ross's monkey pet?",
@@ -198,7 +205,7 @@ answers: [
 { text: 'Arcel', correct: false },
 { text: 'Marcus', correct: false }
 ],
-images: "../images/Q1.png"
+images: "images/Q12.png"
 },
 {
 question: 'What is the name of the show Joey and Chandler loved watching?',
@@ -208,7 +215,7 @@ answers: [
 { text: 'Baywatch', correct: true },
 { text: 'Jeopardy', correct: false }
 ],
-images: "../images/Q1.png"
+images: "images/Q13.png"
 },
 {
 question: 'In which city does Friends take place?',
@@ -218,7 +225,7 @@ answers: [
 { text: 'Brooklyn', correct: false },
 { text: 'Los Angeles', correct: false }
 ],
-images: "../images/Q1.png"
+images: "images/Q14.png"
 },
 {
 question: "What is Joey's catchphrase to girls?",
@@ -228,7 +235,7 @@ answers: [
 { text: 'How you doin', correct: true },
 { text: 'How ya doing', correct: false }
 ],
-images: "../images/Q1.png"
+images: "images/Q15.png"
 },
 {
 question: "What are the names of Phoebe's triplets?",
@@ -238,7 +245,7 @@ answers: [
 { text: 'Frank jr-Jasmine-Joey', correct: false },
 { text: 'Fret jr.jr-Jessica-Joey', correct: false }
 ],
-images: "../images/Q1.png"
+images: "images/Q16.png"
 },
 {
 question: "What is Phoebe's surname?",
@@ -248,7 +255,7 @@ answers: [
 { text: 'Bufay', correct: false },
 { text: 'Buffey', correct: false }
 ],
-images: "../images/Q1.png"
+images: "images/Q17.png"
 },
 {
 question: "What was the name of Joey's brown chair?",
@@ -258,7 +265,7 @@ answers: [
 { text: 'Roselita', correct: false },
 { text: 'Elsa', correct: false }
 ],
-images: "../images/Q1.png"
+images: "images/Q18.png"
 },
 {
 question: 'How many types of towels does Monica have?',
@@ -268,7 +275,7 @@ answers: [
 { text: '11', correct: true },
 { text: '12', correct: false }
 ],
-images: "../images/Q1.png"
+images: "images/Q19.png"
 },
 {
 question: 'What kind of plastic surgery does Rachel have when she was a teenager?',
@@ -278,6 +285,6 @@ answers: [
 { text: 'Tummy Tuck', correct: false },
 { text: 'Breast Implants', correct: false }
 ],
-images: "../images/Q1.png"
+images: "images/Q20.png"
 },
 ]
