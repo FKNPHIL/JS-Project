@@ -1,8 +1,3 @@
-*, *::before, *::after {
-	box-sizing: border-box;
-	font-family: Gotham Rounded;
-	}
-	
 	body {
 	--hue: var(--hue-neutral);
 	padding: 0;
@@ -41,12 +36,19 @@
 	width: 800px;
 	max-width: 80%;
 	height: 500px;
-	max-height: 80%;
-	background-image: url(/images/Q1.png);
-	background-color: white;
+	max-height: 80%;	
+	background-color: rgba(247, 241, 241,0.5);
 	border-radius: 5px;
 	padding: 10px;
 	box-shadow: 0 0 10px 2px;
+	}
+
+	.image {
+		
+		width: 600px;
+		max-width: 80%;
+		height: 300px;
+		max-height: 80%;
 	}
 	
 	.btn {
