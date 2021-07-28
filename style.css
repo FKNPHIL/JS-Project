@@ -45,10 +45,11 @@
 
 	.image {
 		
-		width: 600px;
+		width: 700px;
 		max-width: 80%;
 		height: 300px;
 		max-height: 80%;
+		margin-left: 80px;
 	}
 	
 	.btn {
