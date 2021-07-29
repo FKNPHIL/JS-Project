@@ -7,10 +7,10 @@
     <link href="style.css" rel="stylesheet">
     <title>Friends Trivia Game</title>   
   </head>
-  <body>
+  <body>    
     <div class="container">
       <div id="question-container" class="hide">
-        <div id="question">Question</div>
+        <div id="question" class="question">Question</div>
         <img id="questionpicture" class="image" src="images/Q1.png"></img>
           <div id="answer-buttons" class="btn-grid">
             <button class="btn">Answer 1</button>
@@ -22,10 +22,12 @@
       <div class="controls">
         <button id="start-btn" class="start-btn btn">Start</button>
         <button id="next-btn" class="next-btn btn hide">Next</button>
+        <button id="quit-btn" class="quit-btn btn hide">Quit</button>
+        <textarea id="score-text" class="text hide"></textarea>
       </div>
       <div class="score">
-        <span id="user-score">0</span>
-        <span id="total-score">/ 10</span>
+        <span id="user-score" class="hide">0</span>
+        <span id="total-score" class="hide">/ 10</span>
       </div>
     </div>
     <script defer src="app.js"></script>    

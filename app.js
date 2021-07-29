@@ -1,10 +1,12 @@
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
+const quitButton = document.getElementById('quit-btn')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 const questionPicture = document.getElementById('questionpicture')
-const userscore = document.getElementById('user-score')
+const userScore = document.getElementById('user-score')
+const getScore = document.getElementById('score-text')
 
 
 let shuffledQuestions, currentQuestionIndex
@@ -16,7 +18,7 @@ nextButton.addEventListener('click', () => {
 })
 
 function startGame() {
-  startButton.classList.add('hide')
+  startButton.classList.add('hide')  
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   shuffledQuestions = shuffledQuestions.slice(0,10)
   currentQuestionIndex = 0
@@ -57,8 +59,13 @@ function selectAnswer(e) {
   const correct = selectedButton.dataset.correct
   
   if (correct) {
-    userscore.innerText = parseFloat(userscore.innerText) + 1
+    userScore.innerText = parseFloat(userScore.innerText) + 1    
   }
+
+  if (userScore.innerText == 10) {
+    quitButton.classList.remove('hide')
+    getScore.classList.remove('hide')
+}
 
   setStatusClass(document.body, correct)
   Array.from(answerButtonsElement.children).forEach(button => {
