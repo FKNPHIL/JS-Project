@@ -105,9 +105,9 @@ const questions = [
 question: 'What is the name of the game Chandler made up when he wanted to give joey money?',
 answers: [
 { text: 'Foosball', correct: false },
-{ text: 'Cups', correct: true },
 { text: 'Flip a Coin', correct: false },
-{ text: 'Bamboozle', correct: false }
+{ text: 'Bamboozle', correct: false },
+{ text: 'Cups', correct: true }
 ],
 images: "images/Q1.png"
 },
@@ -124,9 +124,9 @@ images: "images/Q2.png"
 {
 question: "What is Joey's favorite food?",
 answers: [
+{ text: 'Sandwiches', correct: true },
 { text: 'Pizza', correct: false },
 { text: 'Macaroni', correct: false },
-{ text: 'Sandwiches', correct: true },
 { text: 'Potatoes', correct: false }
 ],
 images: "images/Q3.png"
@@ -144,8 +144,8 @@ images: "images/Q4.png"
 {
 question: "What does Rachel get a tattoo of?",
 answers: [
-{ text: 'Whole World', correct: true },
 { text: 'A Guitar', correct: false },
+{ text: 'Whole World', correct: true },
 { text: 'A Heart', correct: false },
 { text: 'A Ring', correct: false }
 ],
@@ -196,8 +196,8 @@ question: 'Which of the following Friends character introduced Phoebe and Mike?'
 answers: [
 { text: 'Chandler', correct: false },
 { text: 'Gunther', correct: false },
+{ text: 'Monica', correct: false },
 { text: 'Joey', correct: true },
-{ text: 'Monica', correct: false }
 ],
 images: "images/Q10.png"
 },
@@ -234,8 +234,8 @@ images: "images/Q13.png"
 {
 question: 'In which city does Friends take place?',
 answers: [
-{ text: 'Chicago', correct: false },
 { text: 'New York City', correct: true },
+{ text: 'Chicago', correct: false },
 { text: 'Brooklyn', correct: false },
 { text: 'Los Angeles', correct: false }
 ],
@@ -264,10 +264,10 @@ images: "images/Q16.png"
 {
 question: "What is Phoebe's surname?",
 answers: [
-{ text: 'Buffay', correct: true },
 { text: 'Buffe', correct: false },
 { text: 'Bufay', correct: false },
-{ text: 'Buffey', correct: false }
+{ text: 'Buffey', correct: false },
+{ text: 'Buffay', correct: true }
 ],
 images: "images/Q17.png"
 },
