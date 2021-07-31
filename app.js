@@ -1,6 +1,5 @@
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
-const quitButton = document.getElementById('quit-btn')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
@@ -18,6 +17,15 @@ nextButton.addEventListener('click', () => {
 })
 
 function startGame() {
+  // if restarting game
+  if (startButton.innerText == 'Restart') {    
+    getScore.classList.add('hide')
+    userScore.classList.add('hide')
+  }
+  userScore.innerText = 0
+
+
+  // first time starting game
   startButton.classList.add('hide')  
   shuffledQuestions = questions.sort(() => Math.random() - .5)
   shuffledQuestions = shuffledQuestions.slice(0,10)
@@ -59,24 +67,23 @@ function selectAnswer(e) {
   const correct = selectedButton.dataset.correct
   
   if (correct) {
-    userScore.innerText = parseFloat(userScore.innerText) + 1    
+    userScore.innerText = parseFloat(userScore.innerText) + 1
+        
   }
-
-  if (userScore.innerText == 10) {
-    quitButton.classList.remove('hide')
-    getScore.classList.remove('hide')
-}
 
   setStatusClass(document.body, correct)
   Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct)
   })
-if (shuffledQuestions.length > currentQuestionIndex + 1) {
-  nextButton.classList.remove('hide')
-} else {
-  startButton.innerText = 'Restart'
-  startButton.classList.remove('hide')
-}
+  if (shuffledQuestions.length > currentQuestionIndex + 1) {
+    nextButton.classList.remove('hide')
+  } else {
+    startButton.innerText = 'Restart'   
+    getScore.classList.remove('hide')
+    //userScore.classList.remove('hide')
+    startButton.classList.remove('hide')
+    getScore.innerText = 'Total Score = ' + (userScore.innerText / shuffledQuestions.length)*100+ '%'
+  }
 }
 
 function setStatusClass(element, correct) {
@@ -128,8 +135,8 @@ images: "images/Q3.png"
 question: "Where does Phoebe's real mother live?",
 answers: [
 { text: 'Upstate New York', correct: false },
-{ text: 'New York City', correct: true },
-{ text: 'Montauk', correct: false },
+{ text: 'New York City', correct: false },
+{ text: 'Montauk', correct: true },
 { text: 'Pennsylvania', correct: false }
 ],
 images: "images/Q4.png"
@@ -137,9 +144,9 @@ images: "images/Q4.png"
 {
 question: "What does Rachel get a tattoo of?",
 answers: [
-{ text: 'Whole World', correct: false },
+{ text: 'Whole World', correct: true },
 { text: 'A Guitar', correct: false },
-{ text: 'A Heart', correct: true },
+{ text: 'A Heart', correct: false },
 { text: 'A Ring', correct: false }
 ],
 images: "images/Q5.png"
@@ -177,8 +184,8 @@ images: "images/Q8.png"
 {
 question: 'What is the name of the song that made Emma laugh?',
 answers: [
-{ text: 'Where everybody knows your name', correct: false },
-{ text: 'Baby got Back', correct: true },
+{ text: 'I Like Big Butts', correct: true },
+{ text: 'Baby got Back', correct: false },
 { text: "Stacy's Mom", correct: false },
 { text: 'Anaconda', correct: false }
 ],
@@ -293,5 +300,15 @@ answers: [
 { text: 'Breast Implants', correct: false }
 ],
 images: "images/Q20.png"
+},
+{
+question: 'Who is the first Friend to speak on the show?',
+answers: [
+{ text: 'Joey', correct: false },
+{text: 'Chandler', correct: false},
+{text: 'Rachel', correct: false},
+{text: 'Monica', correct: true}
+],
+images: "images/Q21.png"
 },
 ]
